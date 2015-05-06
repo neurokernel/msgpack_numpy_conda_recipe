@@ -1,0 +1,33 @@
+{%set build = 0 %}
+{%set version = "0.3.5" %}
+
+package:
+    name: msgpack-numpy
+    version: {{version}}
+
+about:
+    home: https://github.com/lebedov/msgpack-numpy
+    license: BSD License
+    summary: "Numpy data serialization using msgpack."
+
+source:
+    fn: msgpack-numpy-{{version}}.tar.gz
+    url: https://pypi.python.org/packages/source/m/msgpack-numpy/msgpack-numpy-{{version}}.tar.gz
+    md5: e9f2ce2ea9526e4b147b1c52d62af2f7
+
+requirements:
+  build:
+    - 'msgpack-python >=0.3.0'
+    - numpy
+    - python
+    - setuptools
+
+  run:
+    - 'msgpack-python >=0.3.0'
+    - numpy
+    - python
+
+build:
+  number: {{build}}
+  string: np{{np}}py{{py}}_{{build}}
+  script: python setup.py install
